@@ -30,10 +30,10 @@ const cardSchema = new mongoose.Schema({
   image: {
     required: true,
     type: String,
-    validate: {
-      validator: (v) => validator.isURL(v),
-      message: 'Необходимо ввести корректный URL-адрес для постера фильма',
-    },
+    // validate: {
+    //   validator: (v) => validator.isURL(v),
+    //   message: 'Необходимо ввести корректный URL-адрес для постера фильма',
+    // },
   },
 
   trailerLink: {
@@ -48,10 +48,10 @@ const cardSchema = new mongoose.Schema({
   thumbnail: {
     required: true,
     type: String,
-    validate: {
-      validator: (v) => validator.isURL(v),
-      message: 'Необходимо ввести корректный URL-адрес на трейлер фильма',
-    },
+    // validate: {
+    //   validator: (v) => validator.isURL(v),
+    //   message: 'Необходимо ввести корректный URL-адрес на трейлер фильма',
+    // },
   },
 
   owner: {
@@ -74,6 +74,6 @@ const cardSchema = new mongoose.Schema({
     required: true,
     type: String,
   },
-});
+}, { versionKey: false });
 
 module.exports = mongoose.model('movie', cardSchema);

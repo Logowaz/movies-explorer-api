@@ -16,7 +16,7 @@ const getMovies = (req, res, next) => {
 
 // Обработчик удаления карточки по идентификатору
 const deleteMovieById = (req, res, next) => {
-  Movie.findById(req.params.cardId)
+  Movie.findById(req.params._id)
     .orFail(() => new NotFoundError('Карточка кинофильма с указанным id не найдена'))
     .then((movie) => {
       if (movie.owner.toString() === req.user._id) {

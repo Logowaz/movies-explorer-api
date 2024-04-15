@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 const { celebrate, Joi } = require('celebrate');
-const { regExpUrl } = require('../utils/consts');
+const { regExpUrl, regExpUrlMovies } = require('../utils/consts');
 
 const {
   getMovies,
@@ -15,17 +15,21 @@ router.post(
   '/',
   celebrate({
     body: Joi.object().keys({
+      nameEN: Joi.string().required(),
+      nameRU: Joi.string().required(),
       country: Joi.string().required(),
       director: Joi.string().required(),
-      duration: Joi.number().required(),
-      year: Joi.string().required(),
       description: Joi.string().required(),
-      image: Joi.string().regex(regExpUrl).required(),
-      trailerLink: Joi.string().regex(regExpUrl).required(),
-      nameRU: Joi.string().required(),
-      nameEN: Joi.string().required(),
-      thumbnail: Joi.string().regex(regExpUrl).required(),
+      year: Joi.string().required(),
+      duration: Joi.number().required(),
       movieId: Joi.number().required(),
+      // owner: Joi.string().required(),
+      image: Joi.string().pattern(regExpUrl).required(),
+      trailerLink: Joi.string().pattern(regExpUrlMovies).required(),
+      // thumbnail: Joi.string().pattern(linkRegularThumbnail).required(),
+      // image: Joi.string().required(),
+      // trailerLink: Joi.string().required(),
+      thumbnail: Joi.string().required(),
     }),
   }),
   createMovie,

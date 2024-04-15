@@ -22,7 +22,7 @@ app.use(requestLogger);
 // app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: ['http://localhost:4000', 'https://localhost:4000', 'https://localhost:3001', 'http://localhost:3001', 'http://api.logowazmovies.nomoredomainswork.ru', 'https://api.logowazmovies.nomoredomainswork.ru',
+  origin: ['http://localhost:4000', 'https://localhost:4000', 'https://localhost:3001', 'http://localhost:3001', 'https://localhost:3000', 'http://localhost:3000', 'http://api.logowazmovies.nomoredomainswork.ru', 'https://api.logowazmovies.nomoredomainswork.ru',
     'https://logowazmovies.nomoredomainswork.ru', 'http://logowazmovies.nomoredomainswork.ru'],
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin'],
